@@ -40,4 +40,25 @@ class Program < ActiveRecord::Base
     end
   end
 
+  def self.parse_data
+    html = Faraday.get 'http://tvprogramy.eu/tv-program-19-08-2014.html?cas_od=00:00&datum=tv-program-19-08-2014'
+    doc = Nokogiri::HTML(html.body)
+
+    my_doc = doc.search('table')
+
+    #puts my_doc
+
+    arr = Hash.new
+
+    i = 0
+
+    doc.xpath("//table/tr[not(@class)]").collect do |row|
+
+      arr.push(row.at("td[i++%17]").text.strip)
+
+    end
+
+    puts arr[2]
+  end
+
 end
