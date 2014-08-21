@@ -1,64 +1,52 @@
 class Program < ActiveRecord::Base
 
   def self.parse_programs
-    #http://tvprogramy.eu/?cas_od=00:00
-    #http://tvprogramy.eu/?cas_od=aktual
-    #http://tvprogramy.eu/tv-program-19-08-2014.html?cas_od=00:00&datum=tv-program-19-08-2014
-
-
-    html_tv = Faraday.get 'http://tvprogramy.eu/tv-program-19-08-2014.html?cas_od=00:00&datum=tv-program-19-08-2014'
+    html_tv = Faraday.get 'http://tv-program.aktuality.sk/dnes/cely-den/'
     doc = Nokogiri::HTML(html_tv.body)
 
+    stations = doc.search('.tv-stations')
 
-    doc.search('table').each do |div|
+    stations.search('.tv-station').each do |station|
+      #name = station.search('.station-head h2 a').text
+      #puts station
 
-      #puts div.search('#rating h2').text.to_i
+      prog = station.search('.programme')
+      info = station.search('script')
 
-      puts div.css('td').text
 
-      #movie_origin = div.search('.origin').text.split(', ')
+      #puts prog[0]
+      #puts info[1]
 
-      #Channel.create!(
-      #   name: div.search('h1').text.strip,
-      #genre: div.search('.genre').text,
-      #duration: movie_origin[2].split.first,
-      #year: movie_origin[1].to_i,
-      #description: div.search('.ct-related .content li')[0].text.strip,
-      #rating: div.search('#rating h2').text.to_i,
-      #time: div.search('a')[0].text,
-      #)
+      prog.each_with_index do |item, index|
+        puts item
+        puts info[index+1]
 
-    end
+        return
+      end
 
-  end
-
-  def self.extract_data
-    html = Faraday.get 'http://tvprogramy.eu/tv-program-19-08-2014.html?cas_od=00:00&datum=tv-program-19-08-2014'
-    Nokogiri::HTML(html.body).xpath("tr").collect do |row|
-      puts row
-      source      = row.at("td[2]").text.strip
     end
   end
 
-  def self.parse_data
-    html = Faraday.get 'http://tvprogramy.eu/tv-program-19-08-2014.html?cas_od=00:00&datum=tv-program-19-08-2014'
-    doc = Nokogiri::HTML(html.body)
+  #puts stats[2]
+  #puts stats[2].search('station-head')
 
-    my_doc = doc.search('table')
+  #doc.search('table').each do |div|
 
-    #puts my_doc
+  #puts div.search('#rating h2').text.to_i
 
-    arr = Hash.new
+  # puts div.css('td').text
 
-    i = 0
+  #movie_origin = div.search('.origin').text.split(', ')
 
-    doc.xpath("//table/tr[not(@class)]").collect do |row|
+  #Channel.create!(
+  #   name: div.search('h1').text.strip,
+  #genre: div.search('.genre').text,
+  #duration: movie_origin[2].split.first,
+  #year: movie_origin[1].to_i,
+  #description: div.search('.ct-related .content li')[0].text.strip,
+  #rating: div.search('#rating h2').text.to_i,
+  #time: div.search('a')[0].text,
+  #)
 
-      arr.push(row.at("td[i++%17]").text.strip)
-
-    end
-
-    puts arr[2]
-  end
-
+  #end
 end

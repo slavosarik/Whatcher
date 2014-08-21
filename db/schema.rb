@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140821205212) do
+ActiveRecord::Schema.define(version: 20140821215452) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 20140821205212) do
   end
 
   create_table "genres", force: true do |t|
-    t.string   "type"
+    t.string   "genre_type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -46,9 +46,10 @@ ActiveRecord::Schema.define(version: 20140821205212) do
   end
 
   create_table "programs", force: true do |t|
-    t.time     "scheduled_time"
+    t.time     "scheduled_time_start"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "scheduled_time_end",   null: false
   end
 
 end

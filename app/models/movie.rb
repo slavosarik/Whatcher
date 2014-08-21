@@ -38,27 +38,26 @@ class Movie < ActiveRecord::Base
     return result
   end
 
-  def self.persist_movie(movie)
+  def self.persist_movie(movie_data)
 
-    Movie.create!(
-        name: movie["names"]["cs"],
-        duration: movie["runtime"],
-        year: movie["year"],
-        description: movie["plot"],
-        rating: movie["rating"],
+    movie = Movie.find_or_create_by!(
+        name: movie_data["names"]["cs"],
+        duration: movie_data["runtime"],
+        year: movie_data["year"],
+        description: movie_data["plot"],
+        rating: movie_data["rating"],
     )
+
+    movie_data["genres"].each do |g|
+      movie.movie_genres.create!(
+          genre_id: Genre.find_or_create_by!(
+              genre_type: g
+          ).id
+      )
+    end
+
+
   end
-
-
-
-
-
-
-
-
-
-
-
 
 
   #BACKUP PARSOVANIE
