@@ -1,0 +1,133 @@
+body {
+  font-family: 'Open Sans', Helvetica, Arial;
+  background-color: #433f3c;
+  color: #ffffff;
+}
+
+.floating_cleaner {
+  clear: both;
+}
+
+a:hover, a:visited, a:active {
+  text-decoration: none;
+}
+
+div.container {
+  width: 100%;
+}
+
+div.content-container {
+  padding-top: 100px;
+  /* Height is set by JQuery */
+  overflow: hidden;
+  position: relative;
+}
+
+h1.content-headline {
+  color: #242424;
+  font-size: 50px;
+  text-align: center;
+  line-height: 80px;
+  font-family: 'Josefin Sans', sans-serif;
+  text-shadow: 1px 1px 0px rgba(255,255,255,1);
+}
+
+div.navbar {
+  height: 100px;
+  background-color: #1c1b19;
+  border: none;
+  box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
+}
+
+.navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form {
+  background-color: #1c1b19;
+}
+
+.navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form, .navbar-header {
+  border: none;
+}
+
+ul.navbar-nav {
+  float: right;
+}
+
+ul.navbar-nav li {
+  padding-right: 50px;
+  margin-right: 25px;
+  font-size: 16px;
+  background: image-url('arrow_right.png');
+  background-repeat: no-repeat;
+  background-position: right 25px;
+}
+
+.navbar-inverse .navbar-nav > li > a  {
+  color: #ffffff;
+}
+
+ul.navbar-nav li:last-child {
+  padding-right: 0px;
+  background: none;
+  margin-right: 0px;
+}
+
+.navbar-inverse .navbar-nav li a:hover, .navbar-inverse .navbar-nav .active a:hover {
+  background-color: #000000;
+  transition: background-color 2s;
+}
+
+.navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:focus  {
+  background-color: transparent;
+}
+
+
+.navbar-inverse .navbar-nav li a  {
+  background-color: transparent;
+  line-height: 70px;
+}
+
+@media (max-width: 767px) {
+  div.navbar {
+    height: 80px;
+  }
+
+  .navbar-inverse .navbar-nav li a  {
+    line-height: 20px;
+  }
+
+  ul.navbar-nav li {
+    background: none;
+  }
+
+  ul.navbar-nav li {
+    padding-right: 0px;
+    margin-right: 20px;
+    font-size: 14px;
+    background: none;
+  }
+
+  img#header-logo {
+    height: 50px;
+    width: 143px;
+  }
+}
+
+a.scroll-button {
+  width: 217px;
+  height: 55px;
+  display: block;
+  background: image-url('button_gray_background.jpg');
+  background-repeat: repeat-x;
+  border-radius: 3px;
+  color: #ffffff;
+  line-height: 55px;
+  text-align: center;
+  font-size: 24px;
+  font-weight: lighter;
+  background-position: center center;
+  position: absolute;
+  z-index: 2;
+  bottom: 50px;
+  left:0;
+  right:0;
+  margin: 0 auto;
+}
