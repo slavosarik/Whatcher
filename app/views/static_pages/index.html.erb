@@ -1,2 +1,58 @@
-<h1>Interaktivny tv program</h1>
-<p>coskoro...</p>
+<div class="center hero-unit">
+
+  <script type="text/javascript">
+      $(function () {
+          $('.star').raty({
+              path: '/assets',
+              number: 10,
+              readOnly: true,
+              halfShow: true,
+              score: function () {
+                  return $(this).attr('data-score');
+              }
+          });
+      });
+  </script>
+
+
+  <h1>Choose the one...</h1>
+
+  <table class="table table-condensed">
+    <thead>
+    <tr>
+      <th width="12%">Tv Stanica</th>
+      <th width="20%">Nazov</th>
+      <th width="5%">Zaciatok</th>
+      <th width="5%">Koniec</th>
+      <th width="5%">Rating</th>
+      <th width="5%">Rok</th>
+      <th width="5%">Dlzka</th>
+      <th width="38%">Zaner</th>
+
+
+    </tr>
+    </thead>
+
+    <tbody>
+    <% @programs.each do |p| %>
+        <tr>
+          <td><%= p.channel.name %></td>
+          <td><%= p.movie.name %></td>
+          <td><%= p.scheduled_time_start.strftime("%H:%M") %></td>
+          <td><%= p.scheduled_time_end.strftime("%H:%M") %></td>
+          <td><%= p.movie.rating %></td>
+          <td><%= p.movie.year %></td>
+          <td><%= p.movie.duration %></td>
+          <td>
+            <% genres = Array.new %>
+            <ul class="list-inline">
+              <% p.movie.movie_genres.each do |m_genre| %>
+                  <li><%= m_genre.genre.genre_type %></li>
+              <% end %>
+            </ul>
+          </td>
+
+        </tr>
+    <% end %>
+    </table>
+</div>
