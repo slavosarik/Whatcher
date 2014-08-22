@@ -1,9 +1,35 @@
 body {
   font-family: 'Open Sans', Helvetica, Arial;
-  background-color: #433f3c;
+  background-color: #000000;
   color: #ffffff;
 }
 
 th, tr{
   text-align: center;
+}
+
+
+
+.navbar-container{
+  width: 100%;
+  text-transform: uppercase;
+  font-size: 32px;
+  font-weight: 400;
+  color: #000000;
+  background-color: #000000;
+}
+
+.my_button{
+  background-color: #ffffff;
+  color: #000000;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  margin-left: 15px;
+  margin-right: 15px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-right: 50px;
+  padding-left: 50px;
+
+
 }
