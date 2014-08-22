@@ -8,9 +8,9 @@
   </ul>
 </div>
 
-<div container-body>
-  <div container-menu-left>
-    <ul menu-list>
+<div class="container-body">
+  <div class="container-menu-left">
+    <ul class="menu-list">
       <li class="menu-left-item">Filtre</li>
       <li class="menu-left-item">Zaner</li>
       <li class="menu-left-item">Dlzka</li>
@@ -19,53 +19,43 @@
       <li class="menu-left-item">Tv Stanice</li>
     </ul>
   </div>
-  <div class="container-program-right">
-    <div class="container-program-row">
-      <div class="program-item">#1 Program</div>
-      <div class="program-item">#2 Program</div>
-    </div>
-    <div class="container-program-row">
-      <div class="program-item">#3 Program</div>
-      <div class="program-item">#4 Program</div>
-    </div>
+
+  <div class="programs">
+    <table class="table table-condensed">
+      <thead>
+      <tr>
+        <th width="12%">Tv Stanica</th>
+        <th width="20%">Nazov</th>
+        <th width="5%">Zaciatok</th>
+        <th width="5%">Koniec</th>
+        <th width="5%">Rating</th>
+        <th width="5%">Rok</th>
+        <th width="5%">Dlzka</th>
+        <th width="38%">Zaner</th>
+      </tr>
+      </thead>
+
+      <tbody>
+      <% @programs.each do |p| %>
+          <tr>
+            <td><%= p.channel.name %></td>
+            <td><%= p.movie.name %></td>
+            <td><%= p.scheduled_time_start.strftime("%H:%M") %></td>
+            <td><%= p.scheduled_time_end.strftime("%H:%M") %></td>
+            <td><%= p.movie.rating %></td>
+            <td><%= p.movie.year %></td>
+            <td><%= p.movie.duration %></td>
+            <td>
+              <% genres = Array.new %>
+              <ul class="list-inline">
+                <% p.movie.movie_genres.each do |m_genre| %>
+                    <li><%= m_genre.genre.genre_type %></li>
+                <% end %>
+              </ul>
+            </td>
+
+          </tr>
+      <% end %>
+      </table>
   </div>
-</div>
-
-<div class="center hero-unit">
-  <table class="table table-condensed">
-    <thead>
-    <tr>
-      <th width="12%">Tv Stanica</th>
-      <th width="20%">Nazov</th>
-      <th width="5%">Zaciatok</th>
-      <th width="5%">Koniec</th>
-      <th width="5%">Rating</th>
-      <th width="5%">Rok</th>
-      <th width="5%">Dlzka</th>
-      <th width="38%">Zaner</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    <% @programs.each do |p| %>
-        <tr>
-          <td><%= p.channel.name %></td>
-          <td><%= p.movie.name %></td>
-          <td><%= p.scheduled_time_start.strftime("%H:%M") %></td>
-          <td><%= p.scheduled_time_end.strftime("%H:%M") %></td>
-          <td><%= p.movie.rating %></td>
-          <td><%= p.movie.year %></td>
-          <td><%= p.movie.duration %></td>
-          <td>
-            <% genres = Array.new %>
-            <ul class="list-inline">
-              <% p.movie.movie_genres.each do |m_genre| %>
-                  <li><%= m_genre.genre.genre_type %></li>
-              <% end %>
-            </ul>
-          </td>
-
-        </tr>
-    <% end %>
-    </table>
 </div>
