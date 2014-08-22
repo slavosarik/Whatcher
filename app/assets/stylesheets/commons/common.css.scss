@@ -30,14 +30,9 @@ th, tr {
   padding-left: 50px;
 }
 
-.day-list {
-  padding-top: 25px;
-  padding-bottom: 25px;
-
-}
-
 .container-days {
-  padding-top: 50px;
+  padding-top: 30px;
+  padding-bottom: 25px;
 }
 
 .day-item {
@@ -45,15 +40,15 @@ th, tr {
   text-transform: uppercase;
   background-color: #F04670;
   color: #ffffff;
-  margin-top: 15px;
-  margin-bottom: 15px;
+  float: right;
   margin-left: 15px;
   margin-right: 15px;
 
   padding-top: 15px;
   padding-bottom: 15px;
-  padding-right: 100px;
-  padding-left: 100px;
+  padding-right: 50px;
+  padding-left: 50px;
+  width: 15%;
 }
 
 .container-body {
@@ -63,6 +58,7 @@ th, tr {
 .container-menu-left {
   float: left;
   width: 15%;
+  margin-top: -65px;
 }
 
 .menu-left-item {
