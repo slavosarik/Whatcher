@@ -3,7 +3,8 @@ require "net/http"
 
 class Movie < ActiveRecord::Base
 
-  belongs_to :channel
+  has_many :programs
+  has_many :channels, :through => :programs
   has_many :movie_genres
   has_many :genres, :through => :movie_genres
 
@@ -37,28 +38,6 @@ class Movie < ActiveRecord::Base
 
     return result
   end
-
-  def self.persist_movie(movie_data)
-
-    movie = Movie.find_or_create_by!(
-        name: movie_data["names"]["cs"],
-        duration: movie_data["runtime"],
-        year: movie_data["year"],
-        description: movie_data["plot"],
-        rating: movie_data["rating"],
-    )
-
-    movie_data["genres"].each do |g|
-      movie.movie_genres.create!(
-          genre_id: Genre.find_or_create_by!(
-              genre_type: g
-          ).id
-      )
-    end
-
-
-  end
-
 
   #BACKUP PARSOVANIE
   def self.parse_movies(html)

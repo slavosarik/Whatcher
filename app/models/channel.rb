@@ -1,6 +1,7 @@
 class Channel < ActiveRecord::Base
-  has_many :movie_genres
-  has_many :movies, :through => :movie_genres
+  has_many :programs
+  has_many :movies, :through => :programs
+
 
   def self.parse_genres
 
