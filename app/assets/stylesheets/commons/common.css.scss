@@ -36,6 +36,7 @@ th, tr {
 }
 
 .day-item {
+  text-align: center;
   display: inline;
   text-transform: uppercase;
   background-color: #F04670;
@@ -58,10 +59,11 @@ th, tr {
 .container-menu-left {
   float: left;
   width: 15%;
-  margin-top: -65px;
+  margin-top: -50px;
 }
 
 .menu-left-item {
+  text-align: center;
   list-style-type: none;
   text-transform: uppercase;
   background-color: #313F40;
@@ -78,6 +80,7 @@ th, tr {
 }
 
 .programs {
+
   float: right;
   width: 80%;
   margin: 25px auto 0px auto;
