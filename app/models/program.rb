@@ -2,9 +2,6 @@ class Program < ActiveRecord::Base
   belongs_to :channel
   belongs_to :movie
 
-  #Movie.joins(:programs).where(programs: {:day => "22-08-2014"})
-  #Time.now.strftime("%Y-%m-%d")
-
   def self.parse_programs
 
     #
@@ -93,6 +90,16 @@ class Program < ActiveRecord::Base
     end
 
     return movie
+  end
+
+
+  def self.get_4_top_ratings
+
+    #vybrat vsetky filmy, ktore idu dnes podla navyssieho ratingu
+    # Movie.joins(:programs).where(programs: {:day => Time.now.strftime("%Y-%m-%d")}).order("rating DESC").first(4)
+
+
+
   end
 
 end
