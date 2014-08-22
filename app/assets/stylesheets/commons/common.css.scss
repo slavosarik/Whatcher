@@ -4,11 +4,11 @@ body {
   color: #ffffff;
 }
 
-th, tr{
+th, tr {
   text-align: center;
 }
 
-.navbar-container{
+.navbar-container {
   width: 100%;
   text-transform: uppercase;
   font-size: 32px;
@@ -17,7 +17,7 @@ th, tr{
   background-color: #000000;
 }
 
-.my_button{
+.my_button {
   background-color: #ffffff;
   color: #000000;
   margin-top: 15px;
@@ -31,18 +31,61 @@ th, tr{
 }
 
 .container-days{
-  width: 100%;
+  margin-top: 50px;
+  margin-bottom: 15px;
+  margin-left: 15px;
+  margin-right: 15px;
 }
 
-.container-days .my_button{
-  background-color: #ffffff;
-  color: red;
+.day-item{
+  display: inline;
+  text-transform: uppercase;
+  background-color: #F04670;
+  color: #ffffff;
   margin-top: 15px;
   margin-bottom: 15px;
   margin-left: 15px;
   margin-right: 15px;
+
   padding-top: 15px;
   padding-bottom: 15px;
-  padding-right: 50px;
-  padding-left: 50px;
+  padding-right: 100px;
+  padding-left: 100px;
 }
+
+.container-body{
+  height: 600px;
+}
+
+.container-menu-left{
+  float: left;
+  width: 30%;
+}
+
+.container-program-right {
+  float: right;
+  width: 800px;
+  margin: 0 auto 0px auto;
+  padding: 10px 0px 10px 0px;
+}
+
+.container-program-row {
+  width: 500px;
+  margin: 0 auto;
+  padding: 0px 0px 10px 0px;
+}
+
+.program-item {
+  width: 50px;
+  margin-right: 10px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  float: left;
+  background-color: hotpink;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  padding-right: 100px;
+  padding-left: 100px;
+}
+
