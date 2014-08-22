@@ -3,6 +3,11 @@ class Program < ActiveRecord::Base
   belongs_to :movie
 
   def self.parse_programs
+    #
+    #TU SA SPUSTA FUNKCIA !!! - v rails-console: Program.parse_programs
+    #
+
+
 
     #PARSOVANIE PROGRAMU
     html_tv = Faraday.get 'http://tv-program.aktuality.sk/dnes/cely-den/'
@@ -52,7 +57,7 @@ class Program < ActiveRecord::Base
         movie = persist_and_retrieve_movie(movie_data)
 
         #ULOZENIE PROGRAMU DO DATABAZY
-        movie.programs.create!(
+        movie.programs.find_or_create_by!(
             channel_id: Channel.find_or_create_by!(name: station_name).id,
             scheduled_time_start: prog_time_start,
             scheduled_time_end: prog_time_end,
@@ -63,6 +68,10 @@ class Program < ActiveRecord::Base
       end
     end
   end
+
+  #User.joins(:pets).where("pets.name != ?", "fluffy")
+  #Company.joins(:price_movements,:goods_movements).where("goods_movement.date = price_movement.date")
+  #Time.now.strftime("%Y-%m-%d")
 
   def self.persist_and_retrieve_movie(movie_data)
 
@@ -77,7 +86,7 @@ class Program < ActiveRecord::Base
 
     #VYTVORENIE ZANRU K FILMU
     movie_data["genres"].each do |g|
-      movie.movie_genres.create!(
+      movie.movie_genres.find_or_create_by!(
           genre_id: Genre.find_or_create_by!(
               genre_type: g
           ).id
