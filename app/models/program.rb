@@ -2,11 +2,14 @@ class Program < ActiveRecord::Base
   belongs_to :channel
   belongs_to :movie
 
+  #Movie.joins(:programs).where(programs: {:day => "22-08-2014"})
+  #Time.now.strftime("%Y-%m-%d")
+
   def self.parse_programs
+
     #
     #TU SA SPUSTA FUNKCIA !!! - v rails-console: Program.parse_programs
     #
-
 
 
     #PARSOVANIE PROGRAMU
@@ -68,10 +71,6 @@ class Program < ActiveRecord::Base
       end
     end
   end
-
-  #User.joins(:pets).where("pets.name != ?", "fluffy")
-  #Company.joins(:price_movements,:goods_movements).where("goods_movement.date = price_movement.date")
-  #Time.now.strftime("%Y-%m-%d")
 
   def self.persist_and_retrieve_movie(movie_data)
 
