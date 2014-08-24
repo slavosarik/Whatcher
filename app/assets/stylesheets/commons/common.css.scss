@@ -2,6 +2,7 @@ body {
   font-family: 'Open Sans', Helvetica, Arial;
   background-color: #000000;
   color: #ffffff;
+  min-width: 1366px;
 }
 
 th, tr {
@@ -30,36 +31,11 @@ th, tr {
   padding-left: 50px;
 }
 
-.container-days {
-  padding-top: 30px;
-  padding-bottom: 25px;
-}
-
-.day-item {
-  text-align: center;
-  display: inline;
-  text-transform: uppercase;
-  background-color: #F04670;
-  color: #ffffff;
-  float: right;
-  margin-left: 15px;
-  margin-right: 15px;
-
-  padding-top: 15px;
-  padding-bottom: 15px;
-  padding-right: 50px;
-  padding-left: 50px;
-  width: 15%;
-}
-
-.container-body {
-  height: 600px;
-}
-
 .container-menu-left {
   float: left;
   width: 15%;
-  margin-top: -65px;
+  margin-top: 15px;
+
 }
 
 .menu-left-item {
@@ -79,10 +55,37 @@ th, tr {
   padding-left: 20px;
 }
 
-.programs {
 
-  float: right;
+.container-body {
+  height: 600px;
+}
+
+.container-days {
+  padding-top: 30px;
+  padding-bottom: 25px;
+}
+
+.day-item {
+  text-align: center;
+  display: inline;
+  text-transform: uppercase;
+  background-color: #F04670;
+  color: #ffffff;
+  float: left;
+  margin-left: 15px;
+  margin-right: 15px;
+
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-right: 50px;
+  padding-left: 50px;
+  width: 15%;
+}
+
+
+.programs {
+  float: left;
   width: 80%;
-  margin: 25px auto 0px auto;
+  margin: 25px auto 15px 15px;
   padding: 10px 0px 10px 0px;
 }

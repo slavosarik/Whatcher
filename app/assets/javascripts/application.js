@@ -12,3 +12,14 @@
 //
 //= require jquery
 //= require bootstrap.min
+
+$(document).ready(function(){
+    $('.day-item, .menu-left-item, .my_button').mouseover(function(){
+        $(this).fadeTo('medium', 0.5);
+        $(this).css('cursor', 'pointer');
+    });
+
+    $('.day-item, .menu-left-item, .my_button').mouseleave(function(){
+        $(this).fadeTo('medium', 1);
+    });
+});
