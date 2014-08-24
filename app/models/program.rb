@@ -144,4 +144,9 @@ class Program < ActiveRecord::Base
     nil
   end
 
+  def tomorow
+    @programs = Program.joins(:movie).where.not(movies: {:rating => nil}).where(programs: {:day => "2014-08-24"}).order("rating DESC").first(4)
+    redirect_to :back
+  end
+
 end
