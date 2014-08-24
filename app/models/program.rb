@@ -34,7 +34,6 @@ class Program < ActiveRecord::Base
 
       #PREHLADAVANIE PROGRAMOV
       prog.each_with_index do |item, index|
-
         #ZISKAVANIE NAZVU PROGRAMU
         program_info = info[index+1].text.match("'.*'").to_s.split(/','/)
         program_name = program_info[0]
@@ -53,18 +52,19 @@ class Program < ActiveRecord::Base
         #VYHLADAVANIE FIMU NA CSFD
         movie_data = Movie.find_movie(program_name)
 
-        #ULOZENIE FILMU DO DATABAZY
-        movie = persist_and_retrieve_movie(movie_data)
+        if movie_data != nil
 
-        #ULOZENIE PROGRAMU DO DATABAZY
-        movie.programs.find_or_create_by!(
-            channel_id: Channel.find_or_create_by!(name: station_name).id,
-            scheduled_time_start: prog_time_start,
-            scheduled_time_end: prog_time_end,
-            day: program_day
+          #ULOZENIE FILMU DO DATABAZY
+          movie = persist_and_retrieve_movie(movie_data)
 
-        )
-
+          #ULOZENIE PROGRAMU DO DATABAZY
+          movie.programs.find_or_create_by!(
+              channel_id: Channel.find_or_create_by!(name: station_name).id,
+              scheduled_time_start: prog_time_start,
+              scheduled_time_end: prog_time_end,
+              day: program_day
+          )
+        end
       end
     end
   end
@@ -81,12 +81,15 @@ class Program < ActiveRecord::Base
     )
 
     #VYTVORENIE ZANRU K FILMU
-    movie_data["genres"].each do |g|
-      movie.movie_genres.find_or_create_by!(
-          genre_id: Genre.find_or_create_by!(
-              genre_type: g
-          ).id
-      )
+    begin
+      movie_data["genres"].each do |g|
+        movie.movie_genres.find_or_create_by!(
+            genre_id: Genre.find_or_create_by!(
+                genre_type: g
+            ).id
+        )
+      end
+    rescue NoMethodError
     end
 
     return movie

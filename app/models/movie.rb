@@ -18,15 +18,29 @@ class Movie < ActiveRecord::Base
   end
 
   def self.find_movie(name)
-    uri = URI.parse("http://csfdapi.cz/movie?search="+URI.escape(name))
-    http = Net::HTTP.new(uri.host, uri.port)
-    request = Net::HTTP::Get.new(uri.request_uri)
-    result = JSON.parse(http.request(request).body)
+    @prem = true
+    while @prem do
+      begin
+        uri = URI.parse("http://csfdapi.cz/movie?search="+URI.escape(name))
+        http = Net::HTTP.new(uri.host, uri.port)
+        request = Net::HTTP::Get.new(uri.request_uri)
+        result = JSON.parse(http.request(request).body)
+        sleep 1
+        uri = URI.parse("http://csfdapi.cz/movie/"+result.first["id"].to_s)
+        http = Net::HTTP.new(uri.host, uri.port)
+        request = Net::HTTP::Get.new(uri.request_uri)
+        result = JSON.parse(http.request(request).body)
+        sleep 1
+        @prem = false
+      rescue JSON::ParserError
+        #puts e.message
+        sleep 25
+      rescue NoMethodError
+        result = nil
+        @prem = false
+      end
+    end
 
-    uri = URI.parse("http://csfdapi.cz/movie/"+result.first["id"].to_s)
-    http = Net::HTTP.new(uri.host, uri.port)
-    request = Net::HTTP::Get.new(uri.request_uri)
-    result = JSON.parse(http.request(request).body)
 
     #puts result["names"]["cs"]
     #puts result["runtime"]
