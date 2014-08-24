@@ -10,7 +10,8 @@ class Program < ActiveRecord::Base
 
 
     #PARSOVANIE PROGRAMU
-    html_tv = Faraday.get 'http://tv-program.aktuality.sk/dnes/cely-den/'
+    #html_tv = Faraday.get 'http://tv-program.aktuality.sk/dnes/cely-den/'
+    html_tv = Faraday.get 'http://tv-program.aktuality.sk/zajtra/'
     doc = Nokogiri::HTML(html_tv.body)
 
     program_day = doc.search('.head-days a .head-day-subtitle')[1].text.strip
