@@ -72,10 +72,29 @@ class Program < ActiveRecord::Base
 
   def self.persist_and_retrieve_movie(movie_data)
 
+    if movie_data["runtime"].to_s == ''
+      movie_time = ""
+    else
+      if movie_data["runtime"].include?("x")
+        movie_time = movie_data["runtime"][0..-4].split("x")[1]
+      else
+        movie_time = movie_data["runtime"][0..-4]
+      end
+    end
+
+    #puts "INFOOOOOOO: "
+    #puts "\n"
+    #puts movie_data["names"]["cs"]
+    #puts "\n"
+    #puts movie_data["runtime"]
+    #puts "\n"
+    #puts movie_time
+    #puts "\n"
+
     #VYTVORENIE A ULOZENIE FILMU DO DATABAZY
     movie = Movie.find_or_create_by!(
         name: movie_data["names"]["cs"],
-        duration: movie_data["runtime"],
+        duration: movie_time,
         year: movie_data["year"],
         description: movie_data["plot"],
         rating: movie_data["rating"],

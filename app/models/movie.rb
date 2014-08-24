@@ -50,7 +50,7 @@ class Movie < ActiveRecord::Base
     #puts result["rating"]
     #puts result["countries"]
 
-    return result
+     return result
   end
 
   #BACKUP PARSOVANIE
@@ -60,18 +60,20 @@ class Movie < ActiveRecord::Base
 
     doc.search('.page-content').each do |div|
 
-      #puts div.search('#rating h2').text.to_i
-
       movie_origin = div.search('.origin').text.split(', ')
+
+      if movie_origin[2].include?("x")
+        cas = movie_origin[2][0..-4].split("x")[1]
+      else
+        cas = movie_origin[2][0..-4]
+      end
 
       Movie.create!(
           name: div.search('h1').text.strip,
-          #genre: div.search('.genre').text,
-          duration: movie_origin[2].split.first,
+          duration: cas,
           year: movie_origin[1].to_i,
           description: div.search('.ct-related .content li')[0].text.strip,
           rating: div.search('#rating h2').text.to_i,
-      #time: div.search('a')[0].text,
       )
 
     end

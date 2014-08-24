@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 20140822100238) do
 
   create_table "movies", force: true do |t|
     t.string   "name"
-    t.integer  "duration"
+    t.string   "duration"
     t.integer  "year"
     t.text     "description"
     t.integer  "rating"
