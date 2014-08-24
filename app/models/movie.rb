@@ -63,9 +63,9 @@ class Movie < ActiveRecord::Base
       movie_origin = div.search('.origin').text.split(', ')
 
       if movie_origin[2].include?("x")
-        cas = movie_origin[2][0..-4].split("x")[1]
+        cas = movie_origin[2].split("x")[1]
       else
-        cas = movie_origin[2][0..-4]
+        cas = movie_origin[2]
       end
 
       Movie.create!(

@@ -76,9 +76,9 @@ class Program < ActiveRecord::Base
       movie_time = ""
     else
       if movie_data["runtime"].include?("x")
-        movie_time = movie_data["runtime"][0..-4].split("x")[1]
+        movie_time = movie_data["runtime"].split("x")[1]
       else
-        movie_time = movie_data["runtime"][0..-4]
+        movie_time = movie_data["runtime"]
       end
     end
 
