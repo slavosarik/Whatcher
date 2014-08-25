@@ -19,8 +19,10 @@
       <!--<li class="day-item"> link_to 'Zajtra', root_path(day: Date.today + 1.day) ><!--<input class="tomorow" onclick="Program.tomorow" type="button" value="--><!--Zajtra</li>-->
       <li class="day-item today"><%= link_to 'Dnes', root_path(day: Date.today) %></li>
       <li class="day-item tomorow"><%= link_to 'Zajtra', root_path(day: Date.today + 1.day) %></li>
-      <li class="day-item week">Týždeň</li>
-      <li class="day-item archive">Archív</li>
+      <li class="day-item tomorow"><%= link_to 'Týždeň', root_path(day: Date.today + 1.day) %></li>
+      <li class="day-item tomorow"><%= link_to 'Archív', root_path(day: Date.today + 1.day) %></li>
+      <!--<li class="day-item week">Týždeň</li>
+      <li class="day-item archive">Archív</li>-->
     </ul>
   </div>
 
