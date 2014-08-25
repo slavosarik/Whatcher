@@ -10,7 +10,8 @@ class Program < ActiveRecord::Base
 
     #PARSOVANIE PROGRAMU
     #html_tv = Faraday.get 'http://tv-program.aktuality.sk/dnes/cely-den/'
-    channell = ['http://tv-program.aktuality.sk/stanica/joj/',
+    channell = ['http://tv-program.aktuality.sk/stanica/jednotka/',
+                'http://tv-program.aktuality.sk/stanica/joj/',
                 'http://tv-program.aktuality.sk/stanica/plus/',
                 'http://tv-program.aktuality.sk/stanica/ct1/',
                 'http://tv-program.aktuality.sk/stanica/nova/',
