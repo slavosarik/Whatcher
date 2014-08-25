@@ -13,9 +13,12 @@
 
   <div class="container-days">
     <ul class="day-list">
-      <li class="day-item now">Teraz</li>
-      <li class="day-item today">Dnes</li>
-      <li class="day-item"><!--<input class="tomorow" onclick="Program.tomorow" type="button" value="-->Zajtra</li>
+      <li class="day-item now"><%= link_to 'Teraz', root_path(day: Date.today) %></li>
+      <!--<li class="day-item today"> %= link_to 'Parse', parse_programs_path, remote: true %> Dnes</li>-->
+      <!--<li class="day-item today">Dnes</li>-->
+      <!--<li class="day-item"> link_to 'Zajtra', root_path(day: Date.today + 1.day) ><!--<input class="tomorow" onclick="Program.tomorow" type="button" value="--><!--Zajtra</li>-->
+      <li class="day-item today"><%= link_to 'Dnes', root_path(day: Date.today) %></li>
+      <li class="day-item tomorow"><%= link_to 'Zajtra', root_path(day: Date.today + 1.day) %></li>
       <li class="day-item week">Týždeň</li>
       <li class="day-item archive">Archív</li>
     </ul>
@@ -25,27 +28,25 @@
     <table class="table table-condensed">
       <thead>
       <tr>
-        <th width="12%">Tv stanica</th>
         <th width="20%">Názov</th>
+        <th width="5%">Hodnotenie</th>
         <th width="5%">Začiatok</th>
         <th width="5%">Koniec</th>
-        <th width="5%">Rating</th>
-        <th width="5%">Rok</th>
-        <th width="5%">Dĺžka</th>
+        <th width="12%">Tv stanica</th>
         <th width="38%">Žáner</th>
+        <th width="5%">Rok</th>
+        <!--<th width="5%">Dĺžka</th>-->
       </tr>
       </thead>
 
       <tbody>
       <% @programs.each do |p| %>
           <tr>
-            <td><%= p.channel.name %></td>
             <td><%= p.movie.name %></td>
+            <td><%= p.movie.rating %></td>
             <td><%= p.scheduled_time_start.strftime("%H:%M") %></td>
             <td><%= p.scheduled_time_end.strftime("%H:%M") %></td>
-            <td><%= p.movie.rating %></td>
-            <td><%= p.movie.year %></td>
-            <td><%= p.movie.duration %></td>
+            <td><%= p.channel.name %></td>
             <td>
               <% genres = Array.new %>
               <ul class="list-inline">
@@ -54,6 +55,8 @@
                 <% end %>
               </ul>
             </td>
+            <td><%= p.movie.year %></td>
+            <!--<td><#%= p.movie.duration %></td>-->
 
           </tr>
       <% end %>
