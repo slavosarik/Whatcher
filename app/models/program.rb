@@ -10,28 +10,29 @@ class Program < ActiveRecord::Base
 
     #PARSOVANIE PROGRAMU
     #html_tv = Faraday.get 'http://tv-program.aktuality.sk/dnes/cely-den/'
-    channell = ['http://tv-program.aktuality.sk/stanica/jednotka/',
-                'http://tv-program.aktuality.sk/stanica/joj/',
-                'http://tv-program.aktuality.sk/stanica/plus/',
-                'http://tv-program.aktuality.sk/stanica/ct1/',
-                'http://tv-program.aktuality.sk/stanica/nova/',
-                'http://tv-program.aktuality.sk/stanica/dajto/',
-                'http://tv-program.aktuality.sk/stanica/dvojka/',
-                'http://tv-program.aktuality.sk/stanica/ct2/',
-                'http://tv-program.aktuality.sk/stanica/hbo/',
-                'http://tv-program.aktuality.sk/stanica/markiza/',
-                'http://tv-program.aktuality.sk/stanica/doma/',
-                'http://tv-program.aktuality.sk/stanica/prima/',
-                'http://tv-program.aktuality.sk/stanica/prima-cool/',
-                'http://tv-program.aktuality.sk/stanica/prima-love/',
-                'http://tv-program.aktuality.sk/stanica/hbo2/',
-                'http://tv-program.aktuality.sk/stanica/hbo-comedy/',
-                'http://tv-program.aktuality.sk/stanica/film-plus/',
-                'http://tv-program.aktuality.sk/stanica/filmbox/',
-                'http://tv-program.aktuality.sk/stanica/film-europe/',
-                'http://tv-program.aktuality.sk/stanica/cinemax/',
-                'http://tv-program.aktuality.sk/stanica/mgm/',
-                'http://tv-program.aktuality.sk/stanica/universal-channel/']
+    channell = ['http://tv-program.aktuality.sk/stanica/jednotka/'
+                #'http://tv-program.aktuality.sk/stanica/joj/',
+                #'http://tv-program.aktuality.sk/stanica/plus/',
+                #'http://tv-program.aktuality.sk/stanica/ct1/',
+                #'http://tv-program.aktuality.sk/stanica/nova/',
+                #'http://tv-program.aktuality.sk/stanica/dajto/',
+                #'http://tv-program.aktuality.sk/stanica/dvojka/',
+                #'http://tv-program.aktuality.sk/stanica/ct2/',
+                #'http://tv-program.aktuality.sk/stanica/hbo/',
+                #'http://tv-program.aktuality.sk/stanica/markiza/',
+                #'http://tv-program.aktuality.sk/stanica/doma/',
+                #'http://tv-program.aktuality.sk/stanica/prima/',
+                #'http://tv-program.aktuality.sk/stanica/prima-cool/',
+                #'http://tv-program.aktuality.sk/stanica/prima-love/',
+                #'http://tv-program.aktuality.sk/stanica/hbo2/',
+                #'http://tv-program.aktuality.sk/stanica/hbo-comedy/',
+                #'http://tv-program.aktuality.sk/stanica/film-plus/',
+                #'http://tv-program.aktuality.sk/stanica/filmbox/',
+                #'http://tv-program.aktuality.sk/stanica/film-europe/',
+                #'http://tv-program.aktuality.sk/stanica/cinemax/',
+                #'http://tv-program.aktuality.sk/stanica/mgm/',
+                #'http://tv-program.aktuality.sk/stanica/universal-channel/'
+                ]
 
     channell.each do |chann|
       html_tv = Faraday.get chann

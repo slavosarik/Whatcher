@@ -6,7 +6,7 @@ class StaticPagesController < ApplicationController
     case @program_time
       when 'now'
         @programs = Program.joins(:movie).
-            where.not(movies: {:rating => nil}).where(programs: {:day => Date.today}, scheduled_time_start: (Time.now - 1.hour)..(Time.now + 1.hour)).
+            where.not(movies: {:rating => nil}).where(programs: {:day => Date.today}, scheduled_time_start: (Time.now + 1.hour)..(Time.now + 3.hour)).
             order("rating DESC").first(4);
       when 'today'
         @programs = Program.joins(:movie).
