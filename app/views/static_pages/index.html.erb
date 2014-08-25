@@ -44,6 +44,16 @@
 
       <tbody>
       <% @programs.each do |p| %>
+          <% puts @programs.size%>
+          <% puts "Id: " + p.movie.id.to_s %>
+          <% puts "nazov: " + p.movie.name %>
+          <% puts "Zaciatok: " %>
+          <% puts p.scheduled_time_start%>
+          <% puts "Finish cas: " %>
+          <% puts p.scheduled_time_end%>
+
+
+
           <tr>
             <td><%= p.movie.name %></td>
             <td><%= p.movie.rating %></td>

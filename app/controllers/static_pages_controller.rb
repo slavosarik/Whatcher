@@ -3,14 +3,6 @@ class StaticPagesController < ApplicationController
     #@day = params[:day] || Date.today
     @program_time = params[:program_time]
 
-    puts "Cas: "
-    puts Time.now
-    puts "\n"
-
-    puts Time.now - 1.hour
-    puts "\n"
-
-
     case @program_time
       when 'now'
         @programs = Program.joins(:movie).
@@ -24,7 +16,7 @@ class StaticPagesController < ApplicationController
             where.not(movies: {:rating => nil}).where(programs: {:day => Date.today + 1.day}).order("rating DESC").first(4);
       when 'week'
         @programs = Program.joins(:movie).
-            where.not(movies: {:rating => nil}).where(programs: {:day => Date.today}).order("rating DESC").first(4);
+            where.not(movies: {:rating => nil}).where(programs: {day: Date.today..(Date.today + 7.day)}).order("rating DESC").first(4);
       when 'archiv'
         @programs = Program.joins(:movie).
             where.not(movies: {:rating => nil}).where(programs: {:day => Date.today}).order("rating DESC").first(4);
