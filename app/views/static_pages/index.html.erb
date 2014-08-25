@@ -13,14 +13,15 @@
 
   <div class="container-days">
     <ul class="day-list">
-      <li class="day-item now"><%= link_to 'Teraz', root_path(day: Date.today) %></li>
+      <li class="day-item now"><%= link_to 'Teraz', root_path(program_time: 'now') %></li>
       <!--<li class="day-item today"> %= link_to 'Parse', parse_programs_path, remote: true %> Dnes</li>-->
       <!--<li class="day-item today">Dnes</li>-->
       <!--<li class="day-item"> link_to 'Zajtra', root_path(day: Date.today + 1.day) ><!--<input class="tomorow" onclick="Program.tomorow" type="button" value="--><!--Zajtra</li>-->
-      <li class="day-item today"><%= link_to 'Dnes', root_path(day: Date.today) %></li>
-      <li class="day-item tomorow"><%= link_to 'Zajtra', root_path(day: Date.today + 1.day) %></li>
-      <li class="day-item tomorow"><%= link_to 'Týždeň', root_path(day: Date.today + 1.day) %></li>
-      <li class="day-item tomorow"><%= link_to 'Archív', root_path(day: Date.today + 1.day) %></li>
+      <!--<li class="day-item today">%= link_to 'Dnes', root_path(day: Date.today) %></li>-->
+      <li class="day-item today"><%= link_to 'Dnes', root_path(program_time: 'today') %></li>
+      <li class="day-item tomorow"><%= link_to 'Zajtra', root_path(program_time: 'tomorow') %></li>
+      <li class="day-item tomorow"><%= link_to 'Týždeň', root_path(program_time: 'week') %></li>
+      <li class="day-item tomorow"><%= link_to 'Archív', root_path(program_time: 'archive') %></li>
       <!--<li class="day-item week">Týždeň</li>
       <li class="day-item archive">Archív</li>-->
     </ul>
@@ -43,6 +44,16 @@
 
       <tbody>
       <% @programs.each do |p| %>
+          <% puts @programs.size%>
+          <% puts "Id: " + p.movie.id.to_s %>
+          <% puts "nazov: " + p.movie.name %>
+          <% puts "Zaciatok: " %>
+          <% puts p.scheduled_time_start%>
+          <% puts "Finish cas: " %>
+          <% puts p.scheduled_time_end%>
+
+
+
           <tr>
             <td><%= p.movie.name %></td>
             <td><%= p.movie.rating %></td>
