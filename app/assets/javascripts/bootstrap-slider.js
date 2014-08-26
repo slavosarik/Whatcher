@@ -355,6 +355,7 @@
 		}
 	};
 
+
 	$.fn.slider = function ( option, val ) {
 		return this.each(function () {
 			var $this = $(this),
