@@ -35,8 +35,8 @@
         <th width="5%">Hodnotenie</th>
         <th width="5%">Začiatok</th>
         <th width="5%">Koniec</th>
-        <th width="10%">Deň</th>
-        <th width="7%">Tv stanica</th>
+        <th width="8%">Deň</th>
+        <th width="9%">Tv stanica</th>
         <th width="38%">Žáner</th>
         <th width="5%">Rok</th>
         <!--<th width="5%">Dĺžka</th>-->
@@ -50,7 +50,7 @@
             <td><%= p.movie.rating %></td>
             <td><%= p.scheduled_time_start.strftime("%H:%M") %></td>
             <td><%= p.scheduled_time_end.strftime("%H:%M") %></td>
-            <td><%= p.day.strftime("%d %m %Y")%></td>
+            <td><%= p.day.strftime("%d.%m.%Y")%></td>
             <td><%= p.channel.name %></td>
             <td>
               <% genres = Array.new %>
