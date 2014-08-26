@@ -1,7 +1,17 @@
 <div class="container-menu-left">
   <ul class="menu-list">
     <li class="menu-left-item">Filter</li>
-    <li class="menu-left-item">Žáner</li>
+    <li class="menu-left-item pull-me">Žáner</li>
+    <div class="panel">
+      <% @genre_list.each do |gen| %>
+          <!--<p><input type="checkbox" class="checkbox" checked="checked"><label>-->
+
+          <p>
+            <label class="checkbox-label"><input type="checkbox" checked="checked" value=""><%= "   "+ gen.genre_type %>
+            </label></p>
+      <% end %>
+    </div>
+    <p class="slide"/>
     <li class="menu-left-item">Dĺžka</li>
     <li class="menu-left-item">Rok</li>
     <li class="menu-left-item">Režisér</li>
@@ -46,7 +56,7 @@
             <td><%= p.movie.rating %></td>
             <td><%= p.scheduled_time_start.strftime("%H:%M") %></td>
             <td><%= p.scheduled_time_end.strftime("%H:%M") %></td>
-            <td><%= p.day.strftime("%d.%m.%Y")%></td>
+            <td><%= p.day.strftime("%d.%m.%Y") %></td>
             <td><%= p.channel.name %></td>
             <td>
               <% genres = Array.new %>

@@ -102,3 +102,29 @@ ul {
   }
 }
 
+.panel {
+  background-color: #313F40;
+  color: #F04670;
+  height: auto;
+  display: none;
+  margin: 15px;
+  padding: 15px 20px;
+  font-family: garamond, times-new-roman, serif;
+
+}
+
+label{
+  font-weight: 300;
+}
+
+label.checkbox-label input[type=checkbox]{
+  position: relative;
+  vertical-align: middle;
+  bottom: 1px;
+}
+
+input{
+  margin-right: 10px;
+  padding-right: 10px;
+}
+
