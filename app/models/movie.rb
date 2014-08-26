@@ -2,7 +2,6 @@ require "json"
 require "net/http"
 
 class Movie < ActiveRecord::Base
-
   has_many :programs
   has_many :channels, :through => :programs
   has_many :movie_genres
@@ -31,7 +30,6 @@ class Movie < ActiveRecord::Base
         @prem = false
       end
     end
-
 
     #puts result["names"]["cs"]
     #puts result["runtime"]

@@ -129,15 +129,6 @@ class Program < ActiveRecord::Base
       end
     end
 
-    #puts "INFOOOOOOO: "
-    #puts "\n"
-    #puts movie_data["names"]["cs"]
-    #puts "\n"
-    #puts movie_data["runtime"]
-    #puts "\n"
-    #puts movie_time
-    #puts "\n"
-
     #VYTVORENIE A ULOZENIE FILMU DO DATABAZY
     movie = Movie.find_or_create_by!(
         name: movie_data["names"]["cs"],
@@ -160,34 +151,5 @@ class Program < ActiveRecord::Base
     end
 
     return movie
-  end
-
-
-  def self.get_4_top_ratings
-
-    #vybrat vsetky filmy, ktore idu dnes podla navyssieho ratingu
-    # Movie.joins(:programs).where(programs: {:day => Time.now.strftime("%Y-%m-%d")}).order("rating DESC").first(4)
-
-    program_list = Program.joins(:movie).where(programs: {:day => Time.now.strftime("%Y-%m-%d")}).order("rating DESC").first(4)
-
-    program_list.each do |p|
-      puts "Tv Stanica: " + p.channel.name.to_s+"\n"
-      puts "Nazov: " + p.movie.name.to_s+"\n"
-      puts "Zaciatok: " + p.scheduled_time_start.strftime("%H:%M").to_s+"\n"
-      puts "Koniec: " + p.scheduled_time_end.strftime("%H:%M").to_s+"\n"
-      puts "Rating: " + p.movie.rating.to_s + "\n"
-      puts "Rok: " + p.movie.year.to_s + "\n"
-      puts "Dlzka: " + p.movie.duration.to_s + " min\n"
-      puts "Zaner: "
-
-      genres = Array.new
-      p.movie.movie_genres.each do |m_genre|
-        genres.push m_genre.genre.genre_type
-      end
-      puts genres.to_s
-
-      puts "\n"
-    end
-    nil
   end
 end

@@ -10,7 +10,6 @@
 </div>
 
 <div class="container-body">
-
   <div class="container-days">
     <ul class="day-list">
       <li class="day-item now"><%= link_to 'Teraz', root_path(program_time: 'now') %></li>
@@ -22,8 +21,6 @@
       <li class="day-item tomorow"><%= link_to 'Zajtra', root_path(program_time: 'tomorow') %></li>
       <li class="day-item tomorow"><%= link_to 'Týždeň', root_path(program_time: 'week') %></li>
       <li class="day-item tomorow"><%= link_to 'Archív', root_path(program_time: 'archive') %></li>
-      <!--<li class="day-item week">Týždeň</li>
-      <li class="day-item archive">Archív</li>-->
     </ul>
   </div>
 
@@ -39,7 +36,6 @@
         <th width="9%">Tv stanica</th>
         <th width="38%">Žáner</th>
         <th width="5%">Rok</th>
-        <!--<th width="5%">Dĺžka</th>-->
       </tr>
       </thead>
 
@@ -61,8 +57,6 @@
               </ul>
             </td>
             <td><%= p.movie.year %></td>
-            <!--<td><#%= p.movie.duration %></td>-->
-
           </tr>
       <% end %>
       </table>
