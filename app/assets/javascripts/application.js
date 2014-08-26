@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap.min
+//= require bootstrap-slider
 
 $(document).ready(function(){
     $('.day-item, .menu-left-item, .my_button').mouseover(function(){
@@ -23,9 +24,14 @@ $(document).ready(function(){
     $('.day-item, .menu-left-item, .my_button').mouseleave(function(){
         $(this).fadeTo('medium', 1);
     });
-    $('.pull-me').click(function() {
-        $('.panel').slideToggle('slow');
+    $('.pull-me-genre').click(function() {
+        $('.panel-genre').slideToggle('slow');
+    });
+    $('.pull-me-duration').click(function() {
+        $('.panel-duration').slideToggle('slow');
     });
 
     $('input[type="checkbox"]').checkbox();
+
+    $('.slider').slider();
 });

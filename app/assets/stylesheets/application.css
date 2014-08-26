@@ -12,5 +12,6 @@
  *
  *= require bootstrap.min.css
  *= require commons/common.css.scss
+ *= require slider.css
  *= require_self
  */

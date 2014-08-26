@@ -1,8 +1,9 @@
 <div class="container-menu-left">
   <ul class="menu-list">
     <li class="menu-left-item">Filter</li>
-    <li class="menu-left-item pull-me">Žáner</li>
-    <div class="panel">
+
+    <li class="menu-left-item pull-me-genre">Žáner</li>
+    <div class="panel panel-genre">
       <% @genre_list.each do |gen| %>
           <p>
             <label class="checkbox-label"><input type="checkbox" checked="checked" value=""><%= " "+ gen.genre_type %>
@@ -10,7 +11,28 @@
       <% end %>
     </div>
     <p class="slide"/>
-    <li class="menu-left-item">Dĺžka</li>
+
+
+    <li class="menu-left-item pull-me-duration">Dĺžka</li>
+    <div class="panel panel-duration">
+
+      <div class="slider slider-horizontal" style="width: 100px;">
+        <div class="slider-track">
+          <div class="slider-selection" style="left: 0%; width: 60%;"></div>
+          <div class="slider-handle round" style="left: 60%;"></div>
+          <div class="slider-handle round hide" style="left: 0%;"></div>
+        </div>
+        <div class="tooltip top" style="top: -40px; left: 35px;">
+          <div class="tooltip-arrow"></div>
+          <div class="tooltip-inner">Current value: 6</div>
+        </div>
+        <input type="text" class="span2" value="4" id="sl1"></div>
+
+
+    </div>
+    <p class="slide"/>
+
+
     <li class="menu-left-item">Rok</li>
     <li class="menu-left-item">Režisér</li>
     <li class="menu-left-item">Tv stanice</li>
