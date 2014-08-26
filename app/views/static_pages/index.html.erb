@@ -35,7 +35,8 @@
         <th width="5%">Hodnotenie</th>
         <th width="5%">Začiatok</th>
         <th width="5%">Koniec</th>
-        <th width="12%">Tv stanica</th>
+        <th width="10%">Deň</th>
+        <th width="7%">Tv stanica</th>
         <th width="38%">Žáner</th>
         <th width="5%">Rok</th>
         <!--<th width="5%">Dĺžka</th>-->
@@ -44,21 +45,12 @@
 
       <tbody>
       <% @programs.each do |p| %>
-          <% puts @programs.size%>
-          <% puts "Id: " + p.movie.id.to_s %>
-          <% puts "nazov: " + p.movie.name %>
-          <% puts "Zaciatok: " %>
-          <% puts p.scheduled_time_start%>
-          <% puts "Finish cas: " %>
-          <% puts p.scheduled_time_end%>
-
-
-
           <tr>
             <td><%= p.movie.name %></td>
             <td><%= p.movie.rating %></td>
             <td><%= p.scheduled_time_start.strftime("%H:%M") %></td>
             <td><%= p.scheduled_time_end.strftime("%H:%M") %></td>
+            <td><%= p.day.strftime("%d %m %Y")%></td>
             <td><%= p.channel.name %></td>
             <td>
               <% genres = Array.new %>
