@@ -2,6 +2,7 @@ body {
   font-family: 'Open Sans', Helvetica, Arial;
   background-color: #000000;
   color: #ffffff;
+  min-width: 800px;
 }
 
 th, tr {
@@ -20,21 +21,14 @@ th, tr {
 .my_button {
   background-color: #ffffff;
   color: #000000;
-  margin-top: 15px;
-  margin-bottom: 15px;
-  margin-left: 15px;
-  margin-right: 15px;
-  padding-top: 15px;
-  padding-bottom: 15px;
-  padding-right: 50px;
-  padding-left: 50px;
+  margin: 15px;
+  padding: 15px 50px;
 }
 
 .container-menu-left {
   float: left;
   width: 15%;
   margin-top: 15px;
-
 }
 
 .menu-left-item {
@@ -43,17 +37,9 @@ th, tr {
   text-transform: uppercase;
   background-color: #313F40;
   color: #F04670;
-  margin-top: 15px;
-  margin-bottom: 15px;
-  margin-left: 15px;
-  margin-right: 15px;
-
-  padding-top: 15px;
-  padding-bottom: 15px;
-  padding-right: 20px;
-  padding-left: 20px;
+  margin: 15px;
+  padding: 15px 20px;
 }
-
 
 .container-body {
   height: 600px;
@@ -64,12 +50,11 @@ th, tr {
   padding-bottom: 25px;
 }
 
-
-ul{
-  list-style-type:none;
+ul {
+  list-style-type: none;
 }
 
-.day-item a{
+.day-item a {
   text-align: center;
   display: inline;
   text-transform: uppercase;
@@ -78,15 +63,11 @@ ul{
   float: left;
   margin-left: 15px;
   margin-right: 15px;
-  padding-top: 15px;
-  padding-bottom: 15px;
-  padding-right: 50px;
-  padding-left: 50px;
+  padding: 15px 50px;
   width: 15%;
-
 }
 
-.day-item a:hover{
+.day-item a:hover {
   text-decoration: none;
 }
 
@@ -94,9 +75,59 @@ ul{
   float: left;
   width: 80%;
   margin: 25px auto 15px 15px;
-  padding: 10px 0px 10px 0px;
+  padding: 10px 0px;
 }
 
+@media (max-width: 1280px) {
+
+  .navbar-container {
+    font-size: 24px;
+    width: 80%;
+  }
+
+  .menu-left-item {
+    font-size: 12px;
+    margin: 15px 10px;
+    padding: 15px 10px;
+  }
+
+  .day-item a {
+    padding: 15px;
+    width: 13%;
+  }
+
+  .my_button {
+    margin: 10px;
+    padding: 10px 30px;
+  }
+}
+
+.panel {
+  background-color: #313F40;
+  color: #F04670;
+  height: auto;
+  display: none;
+  margin: 15px;
+  padding: 15px 20px;
+  font-family: garamond, times-new-roman, serif;
+
+}
+
+label{
+  font-weight: 300;
+  margin-right: 15px;
+}
+
+label.checkbox-label input[type=checkbox]{
+  position: relative;
+  vertical-align: middle;
+  bottom: 1px;
+}
+
+input{
+  margin-right: 10px;
+  padding-right: 10px;
+}
 @-webkit-keyframes moves {
   from {
     -webkit-transform: translateX(0);
