@@ -13,7 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap.min
-//= require bootstrap-slider
 
 $(document).ready(function(){
     $('.day-item, .menu-left-item, .my_button').mouseover(function(){
@@ -33,5 +32,4 @@ $(document).ready(function(){
 
     $('input[type="checkbox"]').checkbox();
 
-    $('.slider').slider();
 });
