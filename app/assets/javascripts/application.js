@@ -29,6 +29,9 @@ $(document).ready(function(){
     $('.pull-me-duration').click(function() {
         $('.panel-duration').slideToggle('slow');
     });
+    $('.pull-me-channels').click(function() {
+        $('.panel-channels').slideToggle('slow');
+    });
 
     $('input[type="checkbox"]').checkbox();
 

@@ -11,22 +11,19 @@
       <% end %>
     </div>
     <p class="slide"/>
-
-
     <li class="menu-left-item pull-me-duration">Dĺžka</li>
-    <div class="panel panel-duration">
-
-
-
-
-
-    </div>
-    <p class="slide"/>
-
 
     <li class="menu-left-item">Rok</li>
     <li class="menu-left-item">Režisér</li>
-    <li class="menu-left-item">Tv stanice</li>
+    <li class="menu-left-item pull-me-channels">Tv stanice</li>
+    <div class="panel panel-channels">
+      <% @channel_list.each do |ch| %>
+          <p>
+            <label class="checkbox-label"><input type="checkbox" checked="checked" value=""><%= " "+ ch.name %>
+            </label></p>
+      <% end %>
+    </div>
+    <p class="slide"/>
   </ul>
 </div>
 
