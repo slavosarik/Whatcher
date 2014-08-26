@@ -1,7 +1,15 @@
 <div class="container-menu-left">
   <ul class="menu-list">
     <li class="menu-left-item">Filter</li>
-    <li class="menu-left-item">Žáner</li>
+    <li class="menu-left-item pull-me">Žáner</li>
+    <div class="panel">
+      <% @genre_list.each do |gen| %>
+          <p>
+            <label class="checkbox-label"><input type="checkbox" checked="checked" value=""><%= "   "+ gen.genre_type %>
+            </label></p>
+      <% end %>
+    </div>
+    <p class="slide"/>
     <li class="menu-left-item">Dĺžka</li>
     <li class="menu-left-item">Rok</li>
     <li class="menu-left-item">Režisér</li>
@@ -10,7 +18,6 @@
 </div>
 
 <div class="container-body">
-
   <div class="container-days">
     <ul class="day-list">
       <li class="day-item now"><%= link_to 'Teraz', root_path(program_time: 'now') %></li>
@@ -22,8 +29,6 @@
       <li class="day-item tomorow"><%= link_to 'Zajtra', root_path(program_time: 'tomorow') %></li>
       <li class="day-item tomorow"><%= link_to 'Týždeň', root_path(program_time: 'week') %></li>
       <li class="day-item tomorow"><%= link_to 'Archív', root_path(program_time: 'archive') %></li>
-      <!--<li class="day-item week">Týždeň</li>
-      <li class="day-item archive">Archív</li>-->
     </ul>
   </div>
 
@@ -35,30 +40,21 @@
         <th width="5%">Hodnotenie</th>
         <th width="5%">Začiatok</th>
         <th width="5%">Koniec</th>
-        <th width="12%">Tv stanica</th>
+        <th width="8%">Deň</th>
+        <th width="9%">Tv stanica</th>
         <th width="38%">Žáner</th>
         <th width="5%">Rok</th>
-        <!--<th width="5%">Dĺžka</th>-->
       </tr>
       </thead>
 
       <tbody>
       <% @programs.each do |p| %>
-          <% puts @programs.size%>
-          <% puts "Id: " + p.movie.id.to_s %>
-          <% puts "nazov: " + p.movie.name %>
-          <% puts "Zaciatok: " %>
-          <% puts p.scheduled_time_start%>
-          <% puts "Finish cas: " %>
-          <% puts p.scheduled_time_end%>
-
-
-
           <tr>
             <td><%= p.movie.name %></td>
             <td><%= p.movie.rating %></td>
             <td><%= p.scheduled_time_start.strftime("%H:%M") %></td>
             <td><%= p.scheduled_time_end.strftime("%H:%M") %></td>
+            <td><%= p.day.strftime("%d.%m.%Y") %></td>
             <td><%= p.channel.name %></td>
             <td>
               <% genres = Array.new %>
@@ -69,8 +65,6 @@
               </ul>
             </td>
             <td><%= p.movie.year %></td>
-            <!--<td><#%= p.movie.duration %></td>-->
-
           </tr>
       <% end %>
       </table>

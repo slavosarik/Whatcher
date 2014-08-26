@@ -10,7 +10,7 @@ class Program < ActiveRecord::Base
 
     #PARSOVANIE PROGRAMU
     #html_tv = Faraday.get 'http://tv-program.aktuality.sk/dnes/cely-den/'
-    channell = ['http://tv-program.aktuality.sk/stanica/jednotka/'
+    channell = [#'http://tv-program.aktuality.sk/stanica/jednotka/'
                 #'http://tv-program.aktuality.sk/stanica/joj/',
                 #'http://tv-program.aktuality.sk/stanica/plus/',
                 #'http://tv-program.aktuality.sk/stanica/ct1/',
@@ -22,16 +22,16 @@ class Program < ActiveRecord::Base
                 #'http://tv-program.aktuality.sk/stanica/markiza/',
                 #'http://tv-program.aktuality.sk/stanica/doma/',
                 #'http://tv-program.aktuality.sk/stanica/prima/',
-                #'http://tv-program.aktuality.sk/stanica/prima-cool/',
-                #'http://tv-program.aktuality.sk/stanica/prima-love/',
-                #'http://tv-program.aktuality.sk/stanica/hbo2/',
-                #'http://tv-program.aktuality.sk/stanica/hbo-comedy/',
-                #'http://tv-program.aktuality.sk/stanica/film-plus/',
-                #'http://tv-program.aktuality.sk/stanica/filmbox/',
-                #'http://tv-program.aktuality.sk/stanica/film-europe/',
-                #'http://tv-program.aktuality.sk/stanica/cinemax/',
-                #'http://tv-program.aktuality.sk/stanica/mgm/',
-                #'http://tv-program.aktuality.sk/stanica/universal-channel/'
+                'http://tv-program.aktuality.sk/stanica/prima-cool/',
+                'http://tv-program.aktuality.sk/stanica/prima-love/',
+                'http://tv-program.aktuality.sk/stanica/hbo2/',
+                'http://tv-program.aktuality.sk/stanica/hbo-comedy/',
+                'http://tv-program.aktuality.sk/stanica/film-plus/',
+                'http://tv-program.aktuality.sk/stanica/filmbox/',
+                'http://tv-program.aktuality.sk/stanica/film-europe/',
+                'http://tv-program.aktuality.sk/stanica/cinemax/',
+                'http://tv-program.aktuality.sk/stanica/mgm/',
+                'http://tv-program.aktuality.sk/stanica/universal-channel/'
                 ]
 
     channell.each do |chann|
@@ -123,20 +123,11 @@ class Program < ActiveRecord::Base
       movie_time = ""
     else
       if movie_data["runtime"].include?("x")
-        movie_time = movie_data["runtime"].split("x")[1]
+        movie_time = movie_data["runtime"].split("x")[1][0..-4]
       else
-        movie_time = movie_data["runtime"]
+        movie_time = movie_data["runtime"][0..-4]
       end
     end
-
-    #puts "INFOOOOOOO: "
-    #puts "\n"
-    #puts movie_data["names"]["cs"]
-    #puts "\n"
-    #puts movie_data["runtime"]
-    #puts "\n"
-    #puts movie_time
-    #puts "\n"
 
     #VYTVORENIE A ULOZENIE FILMU DO DATABAZY
     movie = Movie.find_or_create_by!(
@@ -160,34 +151,5 @@ class Program < ActiveRecord::Base
     end
 
     return movie
-  end
-
-
-  def self.get_4_top_ratings
-
-    #vybrat vsetky filmy, ktore idu dnes podla navyssieho ratingu
-    # Movie.joins(:programs).where(programs: {:day => Time.now.strftime("%Y-%m-%d")}).order("rating DESC").first(4)
-
-    program_list = Program.joins(:movie).where(programs: {:day => Time.now.strftime("%Y-%m-%d")}).order("rating DESC").first(4)
-
-    program_list.each do |p|
-      puts "Tv Stanica: " + p.channel.name.to_s+"\n"
-      puts "Nazov: " + p.movie.name.to_s+"\n"
-      puts "Zaciatok: " + p.scheduled_time_start.strftime("%H:%M").to_s+"\n"
-      puts "Koniec: " + p.scheduled_time_end.strftime("%H:%M").to_s+"\n"
-      puts "Rating: " + p.movie.rating.to_s + "\n"
-      puts "Rok: " + p.movie.year.to_s + "\n"
-      puts "Dlzka: " + p.movie.duration.to_s + " min\n"
-      puts "Zaner: "
-
-      genres = Array.new
-      p.movie.movie_genres.each do |m_genre|
-        genres.push m_genre.genre.genre_type
-      end
-      puts genres.to_s
-
-      puts "\n"
-    end
-    nil
   end
 end

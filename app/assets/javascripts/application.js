@@ -23,4 +23,9 @@ $(document).ready(function(){
     $('.day-item, .menu-left-item, .my_button').mouseleave(function(){
         $(this).fadeTo('medium', 1);
     });
+    $('.pull-me').click(function() {
+        $('.panel').slideToggle('slow');
+    });
+
+    $('input[type="checkbox"]').checkbox();
 });
