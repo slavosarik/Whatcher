@@ -33,6 +33,20 @@ $(document).ready(function(){
         $('.panel-channels').slideToggle('slow');
     });
 
+    $('.pull-me-producent').click(function() {
+        $('.panel-producent').slideToggle('slow');
+    });
+
+    $('.pull-me-year').click(function() {
+        $('.panel-year').slideToggle('slow');
+    });
+
+    $('.pull-me-filter').click(function() {
+        $('.panel-filter').slideToggle('slow');
+    });
+
+
+
     $('input[type="checkbox"]').checkbox();
 
 });

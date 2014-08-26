@@ -1,6 +1,13 @@
 <div class="container-menu-left">
   <ul class="menu-list">
-    <li class="menu-left-item">Filter</li>
+
+
+    <li class="menu-left-item pull-me-filter">Filter</li>
+    <div class="panel panel-filter">
+      <p><%= "zoznam filtrov" %></p>
+    </div>
+    <p class="slide"/>
+
 
     <li class="menu-left-item pull-me-genre">Žáner</li>
     <div class="panel panel-genre">
@@ -11,10 +18,29 @@
       <% end %>
     </div>
     <p class="slide"/>
-    <li class="menu-left-item pull-me-duration">Dĺžka</li>
 
-    <li class="menu-left-item">Rok</li>
-    <li class="menu-left-item">Režisér</li>
+
+    <li class="menu-left-item pull-me-duration">Dĺžka</li>
+    <div class="panel panel-duration">
+      <p><%= "vyber dlzky filmu" %></p>
+    </div>
+    <p class="slide"/>
+
+
+    <li class="menu-left-item pull-me-year">Rok</li>
+    <div class="panel panel-year">
+      <p><%= "vyber roku natocenia filmu" %></p>
+    </div>
+    <p class="slide"/>
+
+
+    <li class="menu-left-item pull-me-producent">Režisér</li>
+    <div class="panel panel-producent">
+      <p><%= "zoznam reziserov" %></p>
+    </div>
+    <p class="slide"/>
+
+
     <li class="menu-left-item pull-me-channels">Tv stanice</li>
     <div class="panel panel-channels">
       <% @channel_list.each do |ch| %>
