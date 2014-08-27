@@ -25,8 +25,8 @@ class StaticPagesController < ApplicationController
             where.not(movies: {:rating => nil}).where("duration > 60"). where(programs: {:day => Date.today}).order("rating DESC").first(4);
     end
 
-    @genre_list = Genre.all
-    @channel_list = Channel.all
+    @genre_list = Genre.all.order("genre_type ASC")
+    @channel_list = Channel.all.order("name ASC")
 
     #@programs = Program.joins(:movie).where.not(movies: {:rating => nil}).where(programs: {:day => @day}).order("rating DESC").first(4);
     #@programs = Program.joins(:movie).where.not(movies: {:rating => nil}).where(programs: {:day => "2014-08-25"}).order("rating DESC").first(4)
