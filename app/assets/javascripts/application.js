@@ -45,6 +45,9 @@ $(document).ready(function(){
         $('.panel-filter').slideToggle('slow');
     });
 
+    $('.pull-me-login, .btn-block').click(function() {
+        $('.panel-login').slideToggle('slow');
+    });
 
 
     $('input[type="checkbox"]').checkbox();
