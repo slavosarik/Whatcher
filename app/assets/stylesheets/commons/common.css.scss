@@ -1,8 +1,14 @@
-body {
+body, html {
   font-family: 'Open Sans', Helvetica, Arial;
   background-color: #000000;
   color: #ffffff;
   min-width: 800px;
+  height: 100%;
+}
+
+div#content-container {
+  min-height: 100%;
+  padding-bottom: 110px;
 }
 
 th, tr {
@@ -42,7 +48,7 @@ th, tr {
 }
 
 .container-body {
-  height: 600px;
+
 }
 
 .container-days {
@@ -170,13 +176,20 @@ input{
   display: block;
   height: 110px;
   position: absolute;
-  bottom: 0;
+  top: 0;
   left: -1343px;
   right: -1343px;
   text-indent: -9999px
 }
 
-@media (max-width: 1343px) {
+div#footer-container {
+  height: 110px;
+  margin-top: -110px;
+  position:relative;
+  overflow: hidden;
+}
+
+@media (max-width: 4000px) {
   .rollup {
     background: image-url('whatcher.png') repeat-x scroll center center;
     -webkit-animation: moves 20s linear infinite;
