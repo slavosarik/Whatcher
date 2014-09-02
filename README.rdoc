@@ -1,9 +1,9 @@
-Whatcher
-=========
+= Whatcher
 
-About
-----
+===About
 
 Ruby on rails web application, which collects TV movies data from csfd and recommends to watch movie on TV.
 
-Tech info: Ruby on Rails, PostgreSQL, HTML5, CSS3, Javascript, JQuery, deployed on Heroku.
+===Tech info
+
+Ruby on Rails, PostgreSQL, HTML5, CSS3, Javascript, JQuery, deployed on Heroku.
